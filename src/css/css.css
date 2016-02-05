@@ -1,0 +1,204 @@
+body {
+	margin: 0;
+	padding: 0;
+	margin-top: 102px;
+	background: #fff;
+	color: #333;
+	position: relative;
+	font: 100%/150% normal normal "Source Sans Pro", Helvetica, sans-serif;
+	width: 800px;
+	max-width: 800px;
+	max-height: 400px;
+}
+body.night {
+	background: #222;
+	color: #ddd;
+}
+h1, h2, h3, h4 {
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+section {
+	max-height: 380px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	min-height: 200px;
+}
+.close {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 85px;
+	height: 85px;
+}
+button, input {
+	min-height: 85px;
+	min-width: 85px;
+	width: 85px;
+	height: 85px;
+	display: inline-block;
+}
+button {
+	font-size: 18px;
+}
+input {
+	vertical-align: middle;
+}
+input[type="text"] {
+}
+input[type="checkbox"] {
+	width: 85px;
+	height: 85px;
+	outline: 2px solid #ddd;
+	outline-offset: -2px;
+}
+input[type="checkbox"]:active {
+	outline-color: #cf3;
+}
+input[readonly] {
+	height: auto;
+	width: 100%;
+	min-height: 0;
+}
+
+div, fieldset, textarea {
+	box-sizing: border-box;
+	display: inline-block;
+	margin: 0;
+}
+.newNote {
+	color: #fff;
+	font-weight: bold;
+	background: #2486FF;
+	vertical-align: top;
+	margin: 0 10px;
+}
+.newNote:active {
+	background: #fff;
+	color: #000;
+	font-weight: normal;
+}
+
+.note {
+	background: #fff;
+	min-height: 80px;
+	max-width: 600px;
+	max-height: 200px;
+	overflow: hidden;
+	display: inline-block;
+	border: 1px solid #eee;
+	color: #333;
+}
+.dark .note {
+	color: #666;
+	background: #333;
+}
+.note:active {
+	background: #2486ff;
+	color: #fff;
+	box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+}
+.note:active legend {
+	color: #eee;
+}
+.note.mousedown {
+	position: absolute;
+	background: #2486ff;
+	color: #fff;
+}
+.note.mousedown legend {
+	color: #eee;
+}
+.note legend {
+	font-weight: bold;
+	font-size: 18px;
+	color: #ccc;
+}
+.note p {
+	font-size: 20px;
+}
+
+.editNote {
+	text-align: center;
+}
+.editNote fieldset {
+	margin: 0 auto;
+	border: none;
+}
+.editNote input {
+	width: 600px;
+	height: 80px;
+	color: #666;
+	border: none;
+	font-size: 32px;
+	margin: 10px auto;
+	background: url("img/pencil.png") right center no-repeat;
+	background-size: 50px;
+}
+.editNote input:active {
+	outline: 1px dotted #2486ff;
+}
+.editNote legend {
+	color: #2486FF;
+	text-align: left;
+	background: url("img/pencil.png") right center no-repeat;
+	background-size: 25px;
+	padding: 9px 50px 0 0px;
+	min-height: 14px;
+}
+.editNote legend:active {
+	outline: 1px dotted #2486ff;
+}
+.editNote .fields {
+	min-height: 270px;
+	width: 720px;
+}
+.editNote .controls {
+	width: 210px;
+	text-align: center;
+}
+fieldset button {
+	display: inline-block;
+}
+.newnote.title {
+	color: #2486FF;
+	text-align: left;
+	background: url("img/pencil.png") right center no-repeat;
+	background-size: 25px;
+	padding: 9px 50px 0 0px;
+	min-height: 14px;
+	font-weight: bold;
+	margin: 0 488px 0 0;
+	border: none;
+}
+.newnote.title::-webkit-input-placeholder {
+	color: #8aacDD;
+}
+.newnote.content {
+	height: 150px;
+	width: 100%;
+	color: #666;
+	font-size: 24px;
+	font-weight: light;
+	margin-top: 20px;
+	padding: 20px;
+	background: url("img/pencil.png") right top no-repeat;
+	background-size: 150px;
+}
+

@@ -1,27 +1,30 @@
 var gulp = require("gulp");
 var spawn = require("child_process").spawn;
 
-var srcFiles = ["src/**/*", "css/**/*", "api/**/*", "test/**/*"];
+var outDir = "./dist";
+var srcFiles = ["src/**/*"];
+var bowerDependencies = ["bower_components/**/*"];
 
-gulp.task("copyHtml", copyHtmlTask);
-gulp.task("copy", copyTask);
-gulp.task("build", ["copy", "copyHtml"], buildTask);
 gulp.task("watch", watchTestTask);
-gulp.task("watchBuild", watchBuildTask);
 gulp.task("default", ["build"]);
+gulp.task("test", testTask);
+gulp.task("watchBuild", watchBuildTask);
+gulp.task("copySrc", copySrcTask);
+gulp.task("build", ["copySrc", "copyBowerDependencies"]);
+gulp.task("copyBowerDependencies", copyBowerDependencies);
 
-function copyHtmlTask () {
-	return gulp.src("src/index.html")
-		.pipe(gulp.dest("dist/"));
+function copyBowerDependencies () {
+	return gulp.src(bowerDependencies, { base: "./" })
+		.pipe(gulp.dest(outDir));
 }
 
-function copyTask () {
-	return gulp.src(["css/**", "api/**/*.json"], { base: "./" })
-		.pipe(gulp.dest("dist/"));
+function copySrcTask () {
+	return gulp.src(srcFiles, { base: "./src" })
+		.pipe(gulp.dest(outDir));
 }
 
 function watchBuildTask () {
-	gulp.watch(srcFiles, buildTask);
+	gulp.watch(srcFiles.concat(bowerDependencies), buildTask);
 }
 
 function watchTestTask () {
@@ -30,10 +33,5 @@ function watchTestTask () {
 
 function testTask () {
 	var process = spawn("npm", ["test"], { stdio: "inherit" });
-}
-
-function buildTask () {
-	var process = spawn("gulp", ["copyHtml"], { stdio: "inherit" });
-	var process = spawn("gulp", ["copy"], { stdio: "inherit" });
 }
 

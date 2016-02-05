@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>My App</title>
+<head>
+	<title></title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, user-scalable=no">
 
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/css.css" />
-	</head>
-	<body>
-		<div id="example">Loading =.=</div>
-		<div id="content">Loading =.=</div>
+	<script src="mockgm/mockgm.js"></script>
+	<!--script src="http://172.17.0.2/target/target-script-min.js#anonymous"></script-->
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="pure-min.css">
+	<link href="css/css.css" rel="stylesheet" />
 
-		<script src="index.js"></script>
-	</body>
+	<script src="GMLib/system.js"></script>
+	<script src="GMLib/info.js"></script>
+	<script src="GMLib/comm.js"></script>
+	<script src="GMLib/nav.js"></script>
+	<script src="GMLib/phone.js"></script>
+	<script src="GMLib/media.js"></script>
+	<script src="GMLib/voice.js"></script>
+	<script src="GMLib/io.js"></script>
+	<script src="GMLib/ui.js"></script>
+	<script src="polyfill_bind.js"></script>
+
+</head>
+<body>
+	<header id="header"></header>
+	<section id="root"></section>
+	<footer id="footer"></footer>
+
+	<button class="close" id="close"></button>
+
+	<script src="index.js"></script>
+</body>
 </html>

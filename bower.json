@@ -1,0 +1,30 @@
+{
+	"dependencies": {
+		"pure": "^0.6.0"
+	},
+	"name": "redux-tutorial-todo",
+	"description": "Tutorial app",
+	"main": "index.js",
+	"authors": [
+		"Drahman"
+  ],
+  "license": "MIT",
+  "keywords": [
+	  "Redux",
+	  "ReactJS",
+	  "HTML",
+	  "JS"
+  ],
+  "moduleType": [
+	  "es6"
+  ],
+  "homepage": "https://github.com/or9/redux-tutorial-todo",
+  "private": true,
+  "ignore": [
+	  "**/.*",
+	  "node_modules",
+	  "bower_components",
+	  "test",
+	  "tests"
+  ]
+}

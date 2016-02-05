@@ -1,10 +1,25 @@
+"use strict";
+
 var React = require("react");
 var ReactDOM = require("react-dom");
-var TodoList = require("./TodoList");
+var marked = require("marked");
+var gmService = require("./gm-service");
+var Note = require("./Note");
 
+
+// Static content
 ReactDOM.render(
-	<TodoList />
+	<section>
+		<h1>Hello again, World.</h1>
+		<p>Some static content in ReactDOM render method</p>
+		<p>This replaces the thing with ID of "header"</p>
+	</section>,
+	document.getElementById("header")
+);
 
-	document.getElementById("content")
+// Using module
+ReactDOM.render(
+	<Note />,
+	document.getElementById("app")
 );
 
