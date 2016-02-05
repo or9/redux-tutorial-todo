@@ -2,8 +2,9 @@ var gulp = require("gulp");
 var spawn = require("child_process").spawn;
 
 var outDir = "./dist";
-var srcFiles = ["src/**/*"];
+var srcFiles = ["src/**/*", "!src/**/*.js"];
 var bowerDependencies = ["bower_components/**/*"];
+var watchFiles = ["src/**/*"].concat(bowerDependencies);
 
 gulp.task("watch", watchTestTask);
 gulp.task("default", ["build"]);
@@ -24,11 +25,11 @@ function copySrcTask () {
 }
 
 function watchBuildTask () {
-	gulp.watch(srcFiles.concat(bowerDependencies), buildTask);
+	gulp.watch(watchFiles, buildTask);
 }
 
 function watchTestTask () {
-	gulp.watch(srcFiles, testTask);
+	gulp.watch(watchFiles, testTask);
 }
 
 function testTask () {

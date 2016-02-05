@@ -16,10 +16,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	}
 }
 
-const FIlterLink = connect(
+const FilterLink = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Link)
 
-export default FIlterLink
+export default FilterLink
 

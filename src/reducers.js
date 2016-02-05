@@ -1,8 +1,7 @@
-import { VISIBILITY_FILTERS, SET_VISIBILITY_FILTER, ADD_TODO, COMPLETE_TODO } from "./actions"
 import { combineReducers } from "redux"
 
 const initialState = {
-	visibilityFilter: VISIBILITY_FILTERS.SHOW_ALL,
+	visibilityFilter: "SHOW_ALL",
 	todos: []
 }
 
@@ -11,36 +10,36 @@ const todoApp = combineReducers({
 	todos
 })
 
-export default todoApp
-
-
-// combineReducers does the same thing as below code
-/*
-function todoApp (state = initialState, action) 
-{
+const todo = (state, action) => {
+	console.log("much ado about todo", state, action);
 	switch (action.type) {
-		case SET_VISIBILITY_FILTER:
-			return { ...state, ...newState }
-			//return Object.assign({}, state, {
-			//	visibilityFilter: action.filter
-			//})
+		case "ADD_TODO":
+			return {
+				id: action.id,
+				text: action.text,
+				completed: false
+			}
 
-		case ADD_TODO:
-		case COMPLETE_TODO:
-			return Object.assign({}, state, {
-				todos: todos(state.todos, action)
-			})
+		case "TOGGLE_TODO":
+			if (state.id !== action.id) {
+				return state
+			}
+
+			return {
+				...state,
+				completed: !state.completed
+			}
 
 		default:
 			return state
 	}
 }
-*/
 
 function todos (state = [], action)
 {
+	console.log("doing something with todos: ", state, action);
 	switch (action.type) {
-		case ADD_TODO:
+		case "ADD_TODO":
 			return [
 				...state,
 				{
@@ -48,27 +47,25 @@ function todos (state = [], action)
 					completed: false
 				}
 			]
-		case COMPLETE_TODO:
-			return [
-				...state.slice(0, action.index),
-				Object.assign({}, state[action.index], {
-					completed: true
-				}),
-				...state.slice(action.index + 1)
-			]
+		case "TOGGLE_TODO":
+			return  state.map(t =>
+					  todo(t, action)
+					 )
 		default:
 			return state
 	}
 }
 
-function visibilityFilter (state = VISIBILITY_FILTERS.SHOW_ALL, action) 
+function visibilityFilter (state = "SHOW_ALL", action) 
 {
 	switch (action.type) {
-		case SET_VISIBILITY_FILTER:
+		case "SET_VISIBILITY_FILTER":
 			return action.filter
 			
 		default:
 			return state
 	}
 }
+
+export default todoApp
 
