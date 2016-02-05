@@ -31,16 +31,10 @@ export function addTodo (text) {
 }
 
 export function completeTodo (id) {
-	return { 
-		type: COMPLETE_TODO,
-		id
-	};
+	return { type: COMPLETE_TODO, id };
 }
 
 export function setVisibilityFilter (filter) {
-	return { 
-		type: SET_VISIBILITY_FILTER,
-		filter
-	};
+	return { type: SET_VISIBILITY_FILTER, filter };
 }
 
